@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Grammar Minimizer</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'minimize/css/styles.css' %}">
+</head>
+<body>
+    <h1>Grammar Minimizer</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <textarea name="input-text" rows="10" cols="80" placeholder="Enter grammar in Python dictionary format"></textarea><br>
+        <button type="submit">Minimize</button>
+    </form>
+
+    {% if png_filename %}
+<div>
+    <img src="{% static 'minimize/svg/'|add:png_filename|add:'.png' %}" />
+</div>
+{% endif %}
+    
+
+
+
+
+</body>
+</html>
